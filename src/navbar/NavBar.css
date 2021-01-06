@@ -13,6 +13,10 @@
     width: 40px;
     margin-left: 10px;
 }
-.nav-items a{
+.nav-items{
+    display: flex;
+    flex-direction: row;
+}
+.nav-items p{
     margin-right: 15px;
 }
