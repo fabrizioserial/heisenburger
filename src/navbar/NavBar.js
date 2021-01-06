@@ -6,10 +6,10 @@ export const NavBar = () =>{
         <div className="nav-content">
             <img src="#" className="nav-logo"/>
             <div className="nav-items">
-                <a>HOME</a>
-                <a>CATEGORIES</a>
-                <a>FAVORITES</a>
-                <a>CART</a>
+                <p>HOME</p>
+                <p>CATEGORIES</p>
+                <p>FAVORITES</p>
+                <p>CART</p>
             </div>
         </div>
     )
