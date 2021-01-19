@@ -1,13 +1,12 @@
-import { set } from 'core-js/fn/reflect';
 import React,{useState,useEffect} from 'react'
-import 'core-js/es/array';
 import './ItemCount.css'
 
 
 
 export const ItemCount = (props) =>{
     const [stock,setStock] = useState(props.stock)
-    const [initial,setInitial] = useState(0);
+    const [initial,setInitial] = useState(props.initial);
+    const [finalvalue, setfinalValue] = useState(0);
 
     const handleCountLess = () =>{
         if(initial>0){
@@ -19,6 +18,9 @@ export const ItemCount = (props) =>{
         if(stock>initial){
             setInitial(initial+1);
         }
+    }
+    const AddOn = () =>{
+        setfinalValue(initial);
     }
     useEffect(()=>{
         setInitial(props.initial)
@@ -34,6 +36,12 @@ export const ItemCount = (props) =>{
                 <p>{initial}</p>
                 <button className='btn-item-counter' onClick={handleCountSum}>+</button>
             </div>
+            <div className='container-final-item'>
+                <button onClick={AddOn}>Agregar al carrito</button>     
+            </div>
+            {
+                finalvalue != 0 && <h4 className="result-text">La compra en total es de: {finalvalue} articulos</h4>
+            }
         </div>
     )
 }

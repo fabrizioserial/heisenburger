@@ -6,12 +6,28 @@
     background-color: white;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .btn-item-counter{
     border-width: 0px;
     height: 40px;
     width: 40px;
     font-size: 20px;
+}
+.container-final-item button{
+    width: 270px;
+    height: 50px;
+    margin-top: 20px;
+    color: indigo;
+    border-style: solid;
+    font-weight: 500;
+    background-color: rgb(255, 227, 66);
+    font-size: 16px;
+    border-radius: 5px;
+    border-width: 0px;
+}
+.result-text{
+    color: white;
 }
