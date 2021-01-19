@@ -1,0 +1,17 @@
+.container-item-counter{
+    height: 50px;
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.btn-item-counter{
+    border-width: 0px;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+}
