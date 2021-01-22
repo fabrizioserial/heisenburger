@@ -1,3 +1,7 @@
 .cont-itemslist{
-    height: 300px;
+    background-color: violet;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

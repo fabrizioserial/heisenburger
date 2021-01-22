@@ -1,46 +1,16 @@
-import React,{useState,useEffect,Component} from 'react';
+import React,{useEffect, useState} from 'react';
 
 import "./ItemList.css"
 import { Item } from './item/Item';
 
 
-export const ItemList = () =>{
+export const ItemList = (props) =>{
 
-    const listOfProduct = [
-        {
-            id:"a11",
-            title:"Hamburguesa Triple Cheddar",
-            price:"250",
-            pictureUrl:""
-        },
-        {
-            id:"a12",
-            title:"Hamburguesa Cuarto De Libra",
-            price:"350",
-            pictureUrl:""
-        },
-        {
-            id:"a13",
-            title:"Hamburguesa Vegana",
-            price:"200",
-            pictureUrl:""
-        }
-    ]
-
-    
     return(
-        <ul className="cont-itemslist">
+        <div className="cont-itemslist">
             {   
-
-                listOfProduct.map((item,index)=>{
-                    let itemss = new Promise((res,re)=>{
-                        setTimeout(()=>{
-                            <li key={Item.id}><Item id={item.id} title={item.title} price={item.price} pictureUrl={item.pictureUrl}/></li>
-                
-                        },3000)
-                    })
-                    })
+                props.listOfProducts && props.listOfProducts.map(product => <Item id={product.id} title={product.title} price={product.price} pictureURL={product.pictureURL}/>)
             }
-        </ul>
+        </div>
     )
 }
