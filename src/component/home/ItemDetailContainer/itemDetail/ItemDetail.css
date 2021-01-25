@@ -1,0 +1,35 @@
+.item-d-main-container{
+    height: 1500px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    align-items: center;
+}
+.item-d-pictureandprice{
+    height: auto;
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+    background-color: chartreuse;
+}
+.item-d-cont-picture{
+    max-height: 800px;
+    min-height: 800px;
+    height: 100%;
+    width: 80vw;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-d-cont-price{
+    width: 20vw;
+    max-height: 800px;
+    min-height: 800px;
+    background-color: crimson;
+}
+.item-d-cont-price h3{
+    color: white;
+    font-size: 30px;
+}
