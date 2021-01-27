@@ -6,7 +6,18 @@
     height: 50px;
     flex-direction: row;
     max-width: 100%;
+    background-color: #FFC301;
     
+}
+.category-content{
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50px;
+    flex-direction: row;
+    max-width: 100%;
 }
 .nav-logo{
     height: 40px;
@@ -20,3 +31,4 @@
 .nav-items p{
     margin-right: 15px;
 }
+

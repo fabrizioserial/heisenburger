@@ -1,7 +1,7 @@
 .container{
     width: 100vw;
-    height: 100%;
-    padding-bottom: 50px;
+    height: 100vh;
+
     background-color: indigo;
     display: flex;
     justify-content: center;
@@ -11,4 +11,21 @@
 .text-cont{
     color: white;
     font-size: 60px;
+}
+.container-home{
+    width: 100vw;
+    height: 100%;
+    padding-bottom: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/src/image/Fast_food_Hamburger_Vegetables_Fire_Two_520128_1280x853.jpg");
+}
+.container-home h1{
+    margin-bottom: 0px;
 }

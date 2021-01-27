@@ -33,3 +33,7 @@
     color: white;
     font-size: 30px;
 }
+.image{
+    max-height: 800px;
+    min-height: 800px;
+}
