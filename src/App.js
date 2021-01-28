@@ -12,25 +12,19 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <NavBar/>
+      <NavCategory/>
         <Switch>
-          <Route exact path="/">
-          <NavBar/>
-              <NavCategory/>
+          <Route exact path="/">   
               <ItemListContainer text="Bienvenido! 👋"/>
           </Route>
           <Route path="/api">
-          <NavBar/>
-              <NavCategory/>
               <ApiComponent/>
           </Route>
           <Route path="/category/:categoryId">
-              <NavBar/>
-              <NavCategory/>
               <ItemListContainer/>
           </Route>
           <Route path="/item/:itemId">
-          <NavBar/>
-              <NavCategory/>
               <ItemDetail/>
           </Route>
          

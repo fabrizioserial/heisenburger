@@ -66,11 +66,13 @@ export const ItemListContainer = (props) =>{
             {
                 props.text ?
                     <div className="container-home">
-                        <h1 className="text-cont">{props.text}</h1>
-                        <h3>LAS MEJORES HAMBURGUESAS</h3>
-                        {
-                            console.log("hola")
-                        }
+                        <div className="cont-background">
+                            <h1 className="text-cont">{props.text}</h1>
+                            <h3>LAS MEJORES HAMBURGUESAS</h3>
+                            {
+                                console.log("hola")
+                            }
+                        </div>
                     </div> 
                     
                     :
