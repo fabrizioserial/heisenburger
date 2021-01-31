@@ -3,11 +3,11 @@
     width: 250px;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: rgb(238, 238, 238);
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
-    padding-left: 10px;
+    padding-left: 10px; 
     padding-right: 10px;
 }
 .btn-item-counter{
@@ -20,7 +20,7 @@
     width: 270px;
     height: 50px;
     margin-top: 20px;
-    color: indigo;
+    color: #1C1B17;
     border-style: solid;
     font-weight: 500;
     background-color: rgb(255, 227, 66);
@@ -30,4 +30,11 @@
 }
 .result-text{
     color: white;
+}
+.container-counter{
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

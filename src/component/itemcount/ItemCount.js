@@ -30,7 +30,7 @@ export const ItemCount = (props) =>{
     },[props.stock])
 
     return(
-        <div>
+        <div className="container-counter">
             <div className='container-item-counter'>
                 <button className='btn-item-counter' onClick={handleCountLess}>-</button>
                 <p>{initial}</p>

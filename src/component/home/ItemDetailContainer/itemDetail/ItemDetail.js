@@ -17,11 +17,13 @@ export const ItemDetail = (props)=>{
                 <div className="item-d-cont-price">
                     <h3>{props.title}</h3>
                     <p>${props.price}</p>
-                    <ItemCount stock={20} initial={0}/>
+                    <div className="counter-itemdetail">
+                    <ItemCount stock={props.stock} initial={0} />
+                    </div>
                 </div>
             </div>
             <div className="item-d-descr">
-                <p>Descripcion</p>
+                <h2>Descripcion</h2>
                 <p>{props.desc}</p>
                 <div>
                     <p>{props.id}</p>

@@ -1,39 +1,53 @@
 .item-d-main-container{
     height: 1500px;
-    width: 100vw;
+    width: 80vw;
     display: flex;
     flex-direction: column;
-    background-color: brown;
+    background-color: #EEEEEE;
     align-items: center;
 }
 .item-d-pictureandprice{
     height: auto;
-    width: 95vw;
+    width: 80vw;
     display: flex;
     flex-direction: row;
-    background-color: chartreuse;
+    background-color: #EEEEEE;
 }
 .item-d-cont-picture{
-    max-height: 800px;
-    min-height: 800px;
+    max-height: 610px;
+    min-height: 610px;
     height: 100%;
-    width: 80vw;
-    background-color: cornflowerblue;
+    width: 60vw;
+    background-color: #EEEEEE;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .item-d-cont-price{
     width: 20vw;
-    max-height: 800px;
-    min-height: 800px;
-    background-color: crimson;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+}
+.counter-itemdetail{
+    align-items: center;
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 10px;
 }
 .item-d-cont-price h3{
-    color: white;
+    color: #FFC301;
     font-size: 30px;
 }
 .image{
-    max-height: 800px;
-    min-height: 800px;
+    max-height: 610px;
+    min-height: 610px;
+}
+.item-d-descr{
+    margin-top: 20px;
 }

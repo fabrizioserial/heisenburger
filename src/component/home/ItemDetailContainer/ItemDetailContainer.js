@@ -14,6 +14,7 @@ export const ItemDetailContainer = ()=>{
             categoryId:"carne",
             title:"Hamburguesa Triple Cheddar",
             price:"250",
+            stock:20,
             desc:"A demás de tener ingredientes exóticos, vas a saborear el borde con salchichas Argentinas 🌭",
             thumbnail:"https://media-cdn.tripadvisor.com/media/photo-s/18/92/e1/f9/hamburguesa-duke-triple.jpg",
         },
@@ -22,6 +23,7 @@ export const ItemDetailContainer = ()=>{
             categoryId:"carne",
             title:"Hamburguesa Cuarto De Libra",
             price:"350",
+            stock:10,
             desc:"A demás de tener ingredientes exóticos, vas a saborear el borde con salchichas Argentinas 🌭",
             thumbnail:"https://res.cloudinary.com/glovoapp/w_1200,f_auto,q_auto/Stores/fftq60l5bk4ss6mgsf9i",
         },
@@ -30,6 +32,7 @@ export const ItemDetailContainer = ()=>{
             categoryId:"vegan",
             title:"Hamburguesa Vegana",
             price:"200",
+            stock:5,
             desc:"A demás de tener ingredientes exóticos, vas a saborear el borde con salchichas Argentinas 🌭",
             thumbnail:"https://unareceta.com/wp-content/uploads/2017/09/receta-de-hamburguesa-vegana.jpg",
         }
@@ -64,7 +67,7 @@ export const ItemDetailContainer = ()=>{
         <div className="detail-container">
             {
                 item && <ItemDetail id={item.id} categoryId={item.categoryId} title={item.title} price ={item.price}
-                desc={item.desc} thumbnail={item.thumbnail}/>
+                desc={item.desc} thumbnail={item.thumbnail} stock={item.stock}/>
             }
         </div>
     )
