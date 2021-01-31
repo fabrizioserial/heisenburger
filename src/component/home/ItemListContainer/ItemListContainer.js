@@ -1,4 +1,4 @@
-import React,{useState,useEffect, useDebugValue} from "react";
+import React,{useState,useEffect} from "react";
 import { ItemCount } from "../../itemcount/ItemCount";
 import { ItemList } from "../../itemList/ItemList";
 import { ApiComponent } from "../../apiComponent/ApiComponent";
@@ -11,26 +11,7 @@ export const ItemListContainer = (props) =>{
 
     const {categoryId} = useParams();
 
-    useEffect(()=>{
-        const task = new Promise((resolve,reject)=>{
-            resolve(listOfProduct)    
-        })
-        task.then(response =>{
-            var i = [];
-            listOfProduct.map(product => {
-                return(
-                    <>
-                    {
-                        product.categoryId === categoryId && i.push(product)
-                    }
-                    </>  
-                )
-            })
-            setProduct(i)
-
-        })
-
-    },[categoryId])
+    
     const listOfProduct = [
         {
             id:"a11",
@@ -73,10 +54,14 @@ export const ItemListContainer = (props) =>{
                                 console.log("hola")
                             }
                         </div>
+                    <ItemList categoryId={categoryId} listOfProduct={listOfProduct}/>
+
                     </div> 
-                    
                     :
-                   <ItemList listOfProducts={product}/>
+                    <div className="cont-cat">
+                        <ItemList categoryId={categoryId} listOfProduct={listOfProduct}/>
+                    </div>
+
             }
         </div>
     )

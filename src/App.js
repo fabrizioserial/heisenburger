@@ -6,6 +6,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import { ApiComponent } from './component/apiComponent/ApiComponent';
 import { NavCategory } from './component/navbar/NavCategory';
 import { ItemDetail } from './component/home/ItemDetailContainer/itemDetail/ItemDetail';
+import { ItemDetailContainer } from './component/home/ItemDetailContainer/ItemDetailContainer';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
               <ItemListContainer/>
           </Route>
           <Route path="/item/:itemId">
-              <ItemDetail/>
+              <ItemDetailContainer/>
           </Route>
          
         </Switch>
