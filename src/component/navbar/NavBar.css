@@ -28,6 +28,10 @@
     display: flex;
     flex-direction: row;
 }
+.nav-items a{
+    text-decoration: none;
+    color: rgb(12, 12, 12);
+}
 .nav-items p{
     margin-right: 15px;
 }

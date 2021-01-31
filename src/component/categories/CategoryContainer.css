@@ -1,0 +1,9 @@
+.container-cat{
+    background-color: #1C1B17;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}

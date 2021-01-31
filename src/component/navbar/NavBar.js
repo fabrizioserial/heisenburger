@@ -15,7 +15,9 @@ export const NavBar = () =>{
                 <Link to="/">
                      <p>HOME</p>
                 </Link>
-                <p>CATEGORIES</p>
+                <Link to="/categories">
+                    <p>CATEGORIES</p>
+                </Link>
                 <p>FAVORITES</p>
                 <CartWidget/>
             </div>

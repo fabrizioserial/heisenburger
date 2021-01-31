@@ -7,6 +7,7 @@ import { ApiComponent } from './component/apiComponent/ApiComponent';
 import { NavCategory } from './component/navbar/NavCategory';
 import { ItemDetail } from './component/home/ItemDetailContainer/itemDetail/ItemDetail';
 import { ItemDetailContainer } from './component/home/ItemDetailContainer/ItemDetailContainer';
+import { CategoryContainer } from './component/categories/CategoryContainer';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/api">
               <ApiComponent/>
+          </Route>
+          <Route path="/categories">
+              <CategoryContainer/>
           </Route>
           <Route path="/category/:categoryId">
               <ItemListContainer/>
