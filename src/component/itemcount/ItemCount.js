@@ -22,6 +22,7 @@ export const ItemCount = (props) =>{
     const AddOn = () =>{
         setfinalValue(initial);
     }
+
     useEffect(()=>{
         setInitial(props.initial)
     },[props.initial])
@@ -37,7 +38,10 @@ export const ItemCount = (props) =>{
                 <button className='btn-item-counter' onClick={handleCountSum}>+</button>
             </div>
             <div className='container-final-item'>
-                <button onClick={AddOn}>Agregar al carrito</button>     
+                <button onClick={AddOn,() => {
+                    console.log("el res",initial)
+                    props.handleEvent(initial)
+                    }} >Agregar al carrito</button>     
             </div>
             {
                 finalvalue != 0 && <h4 className="result-text">La compra en total es de: {finalvalue} articulos</h4>

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ItemCount } from "../../../itemcount/ItemCount";
 import '../itemDetail/ItemDetail.css'
 
 export const ItemDetail = (props)=>{
+    const [value,setValue] = useState(0)
 
-  
+    const AddToCart = (i) =>{
+        setValue(i) 
+        
+    }
     
-
-    console.log()
     return(
         <div className="item-d-main-container">
             <div className="item-d-pictureandprice">
@@ -18,7 +22,12 @@ export const ItemDetail = (props)=>{
                     <h3>{props.title}</h3>
                     <p>${props.price}</p>
                     <div className="counter-itemdetail">
-                    <ItemCount stock={props.stock} initial={0} />
+                        {
+                            
+                            value === 0 ? <ItemCount stock={props.stock} handleEvent={AddToCart} initial={0} />
+                            : <Link to="/cart"><button>Terminar compra</button></Link>
+
+                        }
                     </div>
                 </div>
             </div>

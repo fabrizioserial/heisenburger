@@ -8,6 +8,7 @@ import { NavCategory } from './component/navbar/NavCategory';
 import { ItemDetail } from './component/home/ItemDetailContainer/itemDetail/ItemDetail';
 import { ItemDetailContainer } from './component/home/ItemDetailContainer/ItemDetailContainer';
 import { CategoryContainer } from './component/categories/CategoryContainer';
+import { Cart } from './component/cart/Cart';
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/item/:itemId">
               <ItemDetailContainer/>
+          </Route>
+          <Route path="/cart">
+              <Cart/>
           </Route>
          
         </Switch>
