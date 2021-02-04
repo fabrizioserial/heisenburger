@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../../ContextCart";
 import { ItemCount } from "../../../itemcount/ItemCount";
 import '../itemDetail/ItemDetail.css'
 
 export const ItemDetail = (props)=>{
-    const [value,setValue] = useState(0)
+    const contador = useContext(CartContext)[0]
+    const addItem = useContext(CartContext)[3]
+    const setContadorFun = useContext(CartContext)[1]
+    const [product,setProduct] = useState([
+                props.title,
+                props.price,
+                props.desc,
+                props.id,
+                props.thumbnail
+            ])
 
     const AddToCart = (i) =>{
-        setValue(i) 
-        
+        setProduct([...product,i])
+        setContadorFun(i) 
     }
     
     return(
@@ -24,9 +34,14 @@ export const ItemDetail = (props)=>{
                     <div className="counter-itemdetail">
                         {
                             
-                            value === 0 ? <ItemCount stock={props.stock} handleEvent={AddToCart} initial={0} />
-                            : <Link to="/cart"><button>Terminar compra</button></Link>
+                            contador === 0 ? <ItemCount stock={props.stock} handleEvent={AddToCart} initial={0} />
+                            : <Link to="/cart"><button onClick={()=>{
+                                addItem(product)
+                            }}>Terminar compra</button></Link>
 
+                        }
+                        {
+                            console.log(contador)
                         }
                     </div>
                 </div>

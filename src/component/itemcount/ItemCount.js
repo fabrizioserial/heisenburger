@@ -41,6 +41,7 @@ export const ItemCount = (props) =>{
                 <button onClick={AddOn,() => {
                     console.log("el res",initial)
                     props.handleEvent(initial)
+                    
                     }} >Agregar al carrito</button>     
             </div>
             {

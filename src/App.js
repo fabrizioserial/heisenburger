@@ -9,14 +9,16 @@ import { ItemDetail } from './component/home/ItemDetailContainer/itemDetail/Item
 import { ItemDetailContainer } from './component/home/ItemDetailContainer/ItemDetailContainer';
 import { CategoryContainer } from './component/categories/CategoryContainer';
 import { Cart } from './component/cart/Cart';
+import { ContextCart } from './ContextCart';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar/>
-      <NavCategory/>
+      <ContextCart>
+         <NavBar/>
+        <NavCategory/>
         <Switch>
           <Route exact path="/">   
               <ItemListContainer text="Bienvenido! 👋"/>
@@ -38,6 +40,8 @@ function App() {
           </Route>
          
         </Switch>
+      </ContextCart>
+     
       </BrowserRouter>
     </div>
   );
