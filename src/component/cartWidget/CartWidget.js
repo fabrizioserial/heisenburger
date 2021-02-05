@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import "./CartWidget.css"
 import cartlogo from './cart.svg';
-import { CartContext } from '../../ContextCart';
+import { ContextElement } from '../../ContextCart';
 
 export const CartWidget = () => {
 
-    const contador = useContext(CartContext)[0]
+    const contador = useContext(ContextElement).contador
 
     return(
         <div className="cart-cont">

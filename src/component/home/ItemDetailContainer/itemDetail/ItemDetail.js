@@ -1,26 +1,34 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../../ContextCart";
+import { ContextElement } from "../../../../ContextCart";
 import { ItemCount } from "../../../itemcount/ItemCount";
 import '../itemDetail/ItemDetail.css'
 
 export const ItemDetail = (props)=>{
-    const contador = useContext(CartContext)[0]
-    const addItem = useContext(CartContext)[3]
-    const setContadorFun = useContext(CartContext)[1]
-    const [product,setProduct] = useState([
-                props.title,
-                props.price,
-                props.desc,
-                props.id,
-                props.thumbnail
-            ])
+    const [item,setItem] = useState()
+    const [contador,setContador] = useState(0)
+    const addItem = useContext(ContextElement).addItem
+    const setContadorFun = useContext(ContextElement).setContadorFun
+
 
     const AddToCart = (i) =>{
-        setProduct([...product,i])
-        setContadorFun(i) 
+        const item = {
+            item:{
+                title:props.title,
+                price:props.price,
+                desc:props.desc,
+                id:props.id,
+                thumbnail:props.thumbnail
+            },
+            quantity:i
+        }
+    
+        setItem(item)
+        setContador(i)
     }
+
+
     
     return(
         <div className="item-d-main-container">
@@ -36,7 +44,8 @@ export const ItemDetail = (props)=>{
                             
                             contador === 0 ? <ItemCount stock={props.stock} handleEvent={AddToCart} initial={0} />
                             : <Link to="/cart"><button onClick={()=>{
-                                addItem(product)
+                                addItem(item)
+                                
                             }}>Terminar compra</button></Link>
 
                         }
