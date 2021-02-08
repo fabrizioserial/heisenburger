@@ -19,7 +19,8 @@ export const ItemDetail = (props)=>{
                 price:props.price,
                 desc:props.desc,
                 id:props.id,
-                thumbnail:props.thumbnail
+                thumbnail:props.thumbnail,
+                categoryId:props.categoryId
             },
             quantity:i
         }
@@ -31,13 +32,17 @@ export const ItemDetail = (props)=>{
 
     
     return(
-        <div className="item-d-main-container">
-            <div className="item-d-pictureandprice">
-                <div className="item-d-cont-picture">
-                    <img src={props.thumbnail} className="image"/>
-                </div>
-                <div className="item-d-cont-price">
-                    <h3>{props.title}</h3>
+        <React.Fragment>
+            <div className="item-d-main-container">
+                <div className="item-d-pictureandprice">
+                    <div className="item-d-cont-picture">
+                        <img src={props.thumbnail} className="image"/>
+                    </div>
+                    <div className="item-d-cont-price">
+                        <div className="title-cont">
+                            <p className="item_category">{props.categoryId}</p>
+                            <h3 className="item_title">{props.title}</h3>
+                        </div>
                     <p>${props.price}</p>
                     <div className="counter-itemdetail">
                         {
@@ -53,15 +58,18 @@ export const ItemDetail = (props)=>{
                             console.log(contador)
                         }
                     </div>
+                    </div>
                 </div>
             </div>
             <div className="item-d-descr">
-                <h2>Descripcion</h2>
+                <h2>DESCRIPCION</h2>
+                <hr className="line-desc">
+                </hr>
                 <p>{props.desc}</p>
-                <div>
-                    <p>{props.id}</p>
-                </div>
+                
             </div>
-        </div>
+        </React.Fragment>
+
+
     )
 }

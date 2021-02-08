@@ -22,20 +22,37 @@ export const ContextCart = (props) =>{
             setElement([...elements,itemToAdd])
         
     }
-
+ 
     const itemExist = (id) => {
         console.log(elements.filter(item => item.item.id === id).length)
         return elements.filter(item => item.item.id === id).length
+    }
+
+    const deleteElement = (idOfItemToDelete)=>{
+        console.log("Se va a eliminar el valor de ",idOfItemToDelete)
+        const newmap = elements
+        newmap.map(item => {
+            item.item.id === idOfItemToDelete && 
+                newmap.splice(item)
+        })
+       
+        setElement(newmap)
+        console.log("Asi quedo el nuevo array", elements)
+        
     }
     useEffect(()=>{
         console.log(elements)
     },[elements])
 
+    const changeValue = (newValue)=>{
+        setElement(newValue)
+    }
+
     const setContadorFun = (cont) =>{
         setContador(cont)
     }
     return(
-        <ContextElement.Provider value={{contador,setContadorFun,elements,addItem}}>
+        <ContextElement.Provider value={{contador,setContadorFun,elementsTouse:[elements,setElement],addItem,deleteElement,changeValue,elements}}>
         {
             props.children
         }

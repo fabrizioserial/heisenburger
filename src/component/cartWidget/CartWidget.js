@@ -1,17 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./CartWidget.css"
-import cartlogo from './cart.svg';
-import { ContextElement } from '../../ContextCart';
+import cartlogo from '../../image/ic_cart_black.png';
 
-export const CartWidget = () => {
+export const CartWidget = (props) => {
 
-    const contador = useContext(ContextElement).contador
 
     return(
         <div className="cart-cont">
             <img src={cartlogo} className="cart"/>
             <div className="cart-counter">
-                <p>{contador}</p>
+                <p>{props.cont}</p>
             </div>
         </div>
     )

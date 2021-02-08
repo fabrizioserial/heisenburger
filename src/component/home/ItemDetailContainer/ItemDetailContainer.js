@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import '../ItemDetailContainer/ItemDetailContainer.css'
 import {ItemDetail} from '../ItemDetailContainer/itemDetail/ItemDetail'
 import {useParams} from 'react-router-dom'
+import { ItemRecommended } from './itemRecomendado/ItemRecommended '
 
 export const ItemDetailContainer = ()=>{
     const [item,setItem]=useState();
@@ -12,7 +13,7 @@ export const ItemDetailContainer = ()=>{
         {
             id:"a11",
             categoryId:"carne",
-            title:"Hamburguesa Triple Cheddar",
+            title:"HAMBURGUESA TRIPLE CHEDDAR",
             price:"250",
             stock:20,
             desc:"A demás de tener ingredientes exóticos, vas a saborear el borde con salchichas Argentinas 🌭",
@@ -21,7 +22,7 @@ export const ItemDetailContainer = ()=>{
         {
             id:"a12",
             categoryId:"carne",
-            title:"Hamburguesa Cuarto De Libra",
+            title:"HAMBURGUESA CUARTO DE LIBRA",
             price:"350",
             stock:10,
             desc:"A demás de tener ingredientes exóticos, vas a saborear el borde con salchichas Argentinas 🌭",
@@ -30,7 +31,7 @@ export const ItemDetailContainer = ()=>{
         {
             id:"a13",
             categoryId:"vegan",
-            title:"Hamburguesa Vegana",
+            title:"HAMBURGUESA VEGANA",
             price:"200",
             stock:5,
             desc:"A demás de tener ingredientes exóticos, vas a saborear el borde con salchichas Argentinas 🌭",
@@ -65,10 +66,21 @@ export const ItemDetailContainer = ()=>{
 
     return(
         <div className="detail-container">
+            
             {
                 item && <ItemDetail id={item.id} categoryId={item.categoryId} title={item.title} price ={item.price}
                 desc={item.desc} thumbnail={item.thumbnail} stock={item.stock}/>
             }
+            <div className="detail-container-recomendados-cont">
+                <p className="det-cont-prod-title">TAMBIEN PODES PROBAR</p>
+                <div className="det-cont-products-cont">
+                    {
+                        item &&  <ItemRecommended item={item}/>
+
+                    }
+                </div>
+            </div>
+            
         </div>
     )
 }

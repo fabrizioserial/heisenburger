@@ -1,0 +1,22 @@
+.cat-cont-background-item{
+    width: 50%;
+    background-color: white;
+    height: 200px;
+    object-fit: cover;
+}
+.cat-cont-image-item{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.cat-cont-background-item-small{
+    width: 33.333%;
+    background-color: white;
+    height: 200px;
+    object-fit: cover;
+}
+.cat-cont-image-item-small{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}

@@ -5,12 +5,11 @@ import { ItemListContainer } from './component/home/ItemListContainer/ItemListCo
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import { ApiComponent } from './component/apiComponent/ApiComponent';
 import { NavCategory } from './component/navbar/NavCategory';
-import { ItemDetail } from './component/home/ItemDetailContainer/itemDetail/ItemDetail';
 import { ItemDetailContainer } from './component/home/ItemDetailContainer/ItemDetailContainer';
 import { CategoryContainer } from './component/categories/CategoryContainer';
 import { Cart } from './component/cart/Cart';
 import { ContextCart } from './ContextCart';
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
       <BrowserRouter>
       <ContextCart>
          <NavBar/>
-        <NavCategory/>
+
         <Switch>
           <Route exact path="/">   
               <ItemListContainer text="Bienvenido! 👋"/>

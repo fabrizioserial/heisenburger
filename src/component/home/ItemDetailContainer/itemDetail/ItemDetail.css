@@ -1,11 +1,13 @@
 .item-d-main-container{
-    height: 1500px;
+    height: 100%;
+    margin-top: 80px;
     width: 80vw;
     display: flex;
     flex-direction: column;
     background-color: #EEEEEE;
     align-items: center;
 }
+
 .item-d-pictureandprice{
     height: auto;
     width: 80vw;
@@ -29,7 +31,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 25px;
 
 }
 .counter-itemdetail{
@@ -40,14 +42,40 @@
     height: 100%;
     padding-bottom: 10px;
 }
-.item-d-cont-price h3{
-    color: #FFC301;
-    font-size: 30px;
-}
+
 .image{
     max-height: 610px;
     min-height: 610px;
+    width: inherit;
 }
 .item-d-descr{
+    background-color: white;
+    width: 80vw;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+}
+.item_title{
+    font-weight: 700;
+    font-size: 30px;
+    text-align:start !important; 
+    text-justify: inherit;
+    color: #BB233A;
+}
+.title-cont{
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.item_category{
+    color: rgb(150, 150, 150);
+}
+.line-desc{
+    margin-top: 3px;
+    width: 100%;
+    border-bottom: 1.5px solid #d4d4d4;
 }

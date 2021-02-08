@@ -1,10 +1,8 @@
 import React,{useState,useEffect} from "react";
-import { ItemCount } from "../../itemcount/ItemCount";
 import { ItemList } from "../../itemList/ItemList";
-import { ApiComponent } from "../../apiComponent/ApiComponent";
 import "./ItemListContainer.css";
 import {useParams} from 'react-router-dom'
-import { ItemDetailContainer } from "../ItemDetailContainer/ItemDetailContainer";
+import { CategoryContainerHome } from "../Categories_home/CategoryContainerHome";
 
 
 export const ItemListContainer = (props) =>{
@@ -35,6 +33,34 @@ export const ItemListContainer = (props) =>{
             thumbnail:"https://unareceta.com/wp-content/uploads/2017/09/receta-de-hamburguesa-vegana.jpg",
         }
     ]
+    const listOfCategory = [
+        {
+            thumbnail:"https://www.cremadelechealqueria.com/sites/alqueria-dev/files/styles/650_x_350/public/shutterstock_651646891.png?itok=uglVeqhp",
+            title:"HAMBURGUESAS",
+            id:"Hamburguesas"
+        },
+        {
+            thumbnail:"https://www.laespanolaaceites.com/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso.jpg",
+            title:"PIZZAS",
+            id:"Pizzas"
+        },
+        {
+            thumbnail:"https://d35hsl9am8s2ta.cloudfront.net/public/images/2020/04/sanguche-de-milanesa-773x458.jpeg",
+            title:"SANGUCHES",
+            id:"Sanguche"
+        },
+        {
+            thumbnail:"https://www.goya.com/media/6663/patatas-bravas-2.jpg?quality=80",
+            title:"PAPAS FRITAS",
+            id:"PapasFritas"
+        },
+        {
+            thumbnail:"https://i.ytimg.com/vi/IfCy47TdsNE/maxresdefault.jpg",
+            title:"VEGETARIANO",
+            id:"Vegetariano"
+        }
+        
+    ]
 
     const [product,setProduct] = useState([]);
 
@@ -48,14 +74,18 @@ export const ItemListContainer = (props) =>{
                 props.text ?
                     <div className="container-home">
                         <div className="cont-background">
-                            <h1 className="text-cont">{props.text}</h1>
-                            <h3>LAS MEJORES HAMBURGUESAS</h3>
-                            {
-                                console.log("hola")
-                            }
+                            <div className="cont-home-text">
+                                <p className="text-home-disfruta">Disfruta de las</p>
+                                <p className="text-home-mejores">MEJORES</p>
+                                <p className="text-home-hamburguesas">HAMBURGUESAS</p>
+                                <button className="btn-home-radius">CONOCENOS</button>
+                            </div>
                         </div>
-                    <ItemList categoryId={categoryId} listOfProduct={listOfProduct}/>
-
+                        <CategoryContainerHome items={listOfCategory}/>
+                        {
+                            //<ItemList categoryId={categoryId} listOfProduct={listOfProduct}/>
+                    
+                        }
                     </div> 
                     :
                     <div className="cont-cat">

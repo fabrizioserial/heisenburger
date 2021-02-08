@@ -1,0 +1,120 @@
+.cart-background{
+    height: 100%;
+    width: 100vw;
+    background-image: url("/src/image/item_background.jpg");
+    min-height: 100vh;
+    background-position: center;
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+}
+.cart-back-cart{
+    width: 1000px;
+    background-color: white;
+    height: 100%;
+    padding: 40px;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+.line-undercart{
+    width: 100%;
+    margin-top: -5px;
+    border-bottom: 1.8px solid #a7a7a7;
+    position: relative;
+    z-index: 10;
+}
+.cart-title{
+    width: 100%;
+}
+.cart-title-text{
+    width:150px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 5px solid #FFC301;
+    position: relative;
+    z-index: 20;
+}
+.cart-title{
+    margin-bottom: 20px;
+}
+.cart-total{
+    width: 920px;
+    
+
+}
+.line-uppercart{
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: 1.5px solid #888888;
+}
+.cart-total-btn-pagar{
+    border-style: solid;
+    border-color: #FFC301;
+    color: #FFC301;
+    background-color: white;
+
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    padding-bottom: 3px;
+    font-size: 20px;
+    border-width: 2px;
+}
+.cart-total-btn-pagar:hover{
+    background-color: #FFC301;
+    color: white;
+}
+
+.cart-pay{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.cart-total-totalvalue{
+    font-size: 20px;
+    font-weight: 600;
+}
+.cart-empty{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+.cart-empty-text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+    color: #7D7D7D;
+}
+.cart-empty-btn{
+    margin-top: 25px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 3px;
+    border-style: solid;
+    border-color: #FFC301;
+    color:#FFC301;
+    background-color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+.cart-empty-btn:hover{
+    background-color: #FFC301;
+    color: white;
+}
+.cart-empty-text2{
+    color: #d1d1d1;
+    margin-top: -3px;
+}

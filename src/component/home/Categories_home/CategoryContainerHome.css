@@ -1,0 +1,16 @@
+.cat-cont-background{
+    width: 100vw;
+    background-color: #FFC301;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.cat-cont-div{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+}
