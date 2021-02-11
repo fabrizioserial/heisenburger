@@ -2,33 +2,44 @@ import React,{useEffect, useState} from 'react';
 
 import "./ItemList.css"
 import { Item } from './item/Item';
-import { Link } from "react-router-dom";
+import {getFirestore} from "../../firebase/index"
 
 
 export const ItemList = (props) =>{
     const [product,setProduct] = useState([])
+    const categoryId = props.categoryId
 
     const listOfProduct = props.listOfProduct
     useEffect(()=>{
-        const task = new Promise((resolve,reject)=>{
-            resolve(listOfProduct)    
-        })
-        task.then(response =>{
-            var i = [];
-            listOfProduct.map(product => {
-                return(
-                    <>
-                    {
-                        product.categoryId === props.categoryId && i.push(product)
+        const db = getFirestore()
+        const itemCollection = db.collection("items")
+        if(categoryId){
+            const categoryCollection = itemCollection.where("category","==",categoryId)
+            
+            categoryCollection.get().then((querySnapshot) => {
+                
+                let arrayItems = querySnapshot.docs.map(doc => {
+                    return(
+                        {id:doc.id,...doc.data()}
+                        )
                     }
-                    </>  
-                )
+                    )
+                    console.log(arrayItems)
+                setProduct(arrayItems)
+                
+                
             })
-            console.log(props.categoryId)
-            setProduct(i)
-
-        })
-
+        }else{
+            const limitTo6TheResults = itemCollection.limit(6)
+            limitTo6TheResults.get().then((querySnapshot) =>{
+                let arrayItems = querySnapshot.docs.map(doc =>{
+                    return(
+                        {id:doc.id,...doc.data()}
+                    )
+                })
+                setProduct(arrayItems)
+            })
+        }
     },[props.categoryId])
 
     return(
@@ -37,7 +48,7 @@ export const ItemList = (props) =>{
                 props.categoryId ? 
                 product.length >= 1 && product.map(product =><Item id={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail}/> )
                 :
-                listOfProduct.map(product =><Item id={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail}/> )
+                product.map(product =><Item id={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail}/> )
             }
         </div>
     )

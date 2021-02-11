@@ -44,9 +44,11 @@
 }
 .dropdown-item{
     color: #FFF !important;
+    background-color: #1a1a1a !important;
 }
 .dropdown-item:hover{
-    background-color: #161616;
+    color: black;
+    background-color: #161616  !important;
 }
 .dropdown-divider{
     border-top: 1px solid #FFC301 !important;
@@ -56,4 +58,14 @@
 }
 .nomargin{
     margin-right: 0px !important;
+}
+.nav-items a{
+    cursor: pointer;
+    text-decoration: none !important; 
+    color: white i !important;
+}
+.nav-items a:hover{
+    cursor: pointer;
+    color: white !important;
+    text-decoration: none !important;
 }

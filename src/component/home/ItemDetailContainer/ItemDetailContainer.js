@@ -3,9 +3,10 @@ import '../ItemDetailContainer/ItemDetailContainer.css'
 import {ItemDetail} from '../ItemDetailContainer/itemDetail/ItemDetail'
 import {useParams} from 'react-router-dom'
 import { ItemRecommended } from './itemRecomendado/ItemRecommended '
+import {getFirestore} from '../../../firebase/index'
 
 export const ItemDetailContainer = ()=>{
-    const [item,setItem]=useState();
+    const [item,setItem]=useState({});
 
     const {itemId} = useParams()
 
@@ -40,6 +41,24 @@ export const ItemDetailContainer = ()=>{
     ]
 
     useEffect(()=>{
+        const db = getFirestore()
+        const itemCollection = db.collection("items")
+        const filter = itemCollection.doc(itemId)
+        
+        filter.get().then((querySnapshot) => {
+            
+            let itemfound ={id:itemId,...querySnapshot.data()}
+            console.log("item es ",itemfound)
+
+            setItem(itemfound)
+            
+            
+        })
+        
+
+    },[])
+   /*
+    useEffect(()=>{
         itemId && listOfProduct.map((product)=>{
 
             return(
@@ -68,8 +87,7 @@ export const ItemDetailContainer = ()=>{
         <div className="detail-container">
             
             {
-                item && <ItemDetail id={item.id} categoryId={item.categoryId} title={item.title} price ={item.price}
-                desc={item.desc} thumbnail={item.thumbnail} stock={item.stock}/>
+                item && <ItemDetail itemProp={item}/>
             }
             <div className="detail-container-recomendados-cont">
                 <p className="det-cont-prod-title">TAMBIEN PODES PROBAR</p>

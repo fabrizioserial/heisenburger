@@ -14,6 +14,7 @@ export const ContextCart = (props) =>{
             itemExist(itemToAdd.item.id) > 0 ? 
                 elements.filter(items => items.item.id === itemToAdd.item.id).map(
                     item1 => {
+                        console.log("son iguales las id")
                         item1.quantity = itemToAdd.quantity
                     }
                 ) :
@@ -43,6 +44,8 @@ export const ContextCart = (props) =>{
     useEffect(()=>{
         console.log(elements)
     },[elements])
+
+    
 
     const changeValue = (newValue)=>{
         setElement(newValue)

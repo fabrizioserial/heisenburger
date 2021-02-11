@@ -3,73 +3,68 @@ import { ItemList } from "../../itemList/ItemList";
 import "./ItemListContainer.css";
 import {useParams} from 'react-router-dom'
 import { CategoryContainerHome } from "../Categories_home/CategoryContainerHome";
+import { PublicidadContainer } from "../Publicidad/PublicidadContainer";
+import {getFirestore} from '../../../firebase/index'
 
 
 export const ItemListContainer = (props) =>{
 
     const {categoryId} = useParams();
+    const [items, setItems] = useState([])
+
+    useEffect(()=>{
+        const db = getFirestore()
+        const itemCollection = db.collection("items")
+        
+        itemCollection.get().then((querySnapshot) => {
+            
+            let arrayItems = querySnapshot.docs.map(doc => {
+                return(
+                    {id:doc.id,...doc.data()}
+                    )
+                }
+                )
+            setItems(arrayItems)
+            
+            
+        })
+        
+
+    },[])
 
     
-    const listOfProduct = [
-        {
-            id:"a11",
-            categoryId:"carne",
-            title:"Hamburguesa Triple Cheddar",
-            price:"250",
-            thumbnail:"https://media-cdn.tripadvisor.com/media/photo-s/18/92/e1/f9/hamburguesa-duke-triple.jpg",
-        },
-        {
-            id:"a12",
-            categoryId:"carne",
-            title:"Hamburguesa Cuarto De Libra",
-            price:"350",
-            thumbnail:"https://res.cloudinary.com/glovoapp/w_1200,f_auto,q_auto/Stores/fftq60l5bk4ss6mgsf9i",
-        },
-        {
-            id:"a13",
-            categoryId:"vegan",
-            title:"Hamburguesa Vegana",
-            price:"200",
-            thumbnail:"https://unareceta.com/wp-content/uploads/2017/09/receta-de-hamburguesa-vegana.jpg",
-        }
-    ]
+
     const listOfCategory = [
         {
             thumbnail:"https://www.cremadelechealqueria.com/sites/alqueria-dev/files/styles/650_x_350/public/shutterstock_651646891.png?itok=uglVeqhp",
             title:"HAMBURGUESAS",
-            id:"Hamburguesas"
+            id:"HAMBURGUESA"
         },
         {
             thumbnail:"https://www.laespanolaaceites.com/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso.jpg",
             title:"PIZZAS",
-            id:"Pizzas"
+            id:"PIZZA"
         },
         {
             thumbnail:"https://d35hsl9am8s2ta.cloudfront.net/public/images/2020/04/sanguche-de-milanesa-773x458.jpeg",
             title:"SANGUCHES",
-            id:"Sanguche"
+            id:"SANGUCHE"
         },
         {
             thumbnail:"https://www.goya.com/media/6663/patatas-bravas-2.jpg?quality=80",
             title:"PAPAS FRITAS",
-            id:"PapasFritas"
+            id:"PAPAS FRITAS"
         },
         {
             thumbnail:"https://i.ytimg.com/vi/IfCy47TdsNE/maxresdefault.jpg",
             title:"VEGETARIANO",
-            id:"Vegetariano"
+            id:"VEGETARIANO"
         }
         
     ]
 
-    const [product,setProduct] = useState([]);
-
-
-    
-    
-
     return(
-        <div className="container">
+        <div className="container-itemlist">
             {
                 props.text ?
                     <div className="container-home">
@@ -82,14 +77,15 @@ export const ItemListContainer = (props) =>{
                             </div>
                         </div>
                         <CategoryContainerHome items={listOfCategory}/>
+                        <PublicidadContainer/>
                         {
-                            //<ItemList categoryId={categoryId} listOfProduct={listOfProduct}/>
+                            <ItemList  listOfProduct={items}/>
                     
                         }
                     </div> 
                     :
                     <div className="cont-cat">
-                        <ItemList categoryId={categoryId} listOfProduct={listOfProduct}/>
+                        <ItemList categoryId={categoryId} listOfProduct={items}/>
                     </div>
 
             }

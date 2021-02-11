@@ -31,16 +31,29 @@ export const NavBar = () =>{
                 </Link>
                 <Link to="/categories">
                 <NavDropdown title="CATEGORIAS" className="item-style" id="basic-nav-dropdown">
-                    <NavDropdown.Item  href="#action/3.1">
-                        <Link to={"/category/carne"}>
+                    <NavDropdown.Item>
+                        <Link to={"/category/HAMBURGUESA"}>
                             <p className="item-style nomargin">🍔 HAMBURGUESAS</p>
                         </Link>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">🥪 SANGUCHES</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">🍕 PIZZAS</NavDropdown.Item>
+                    <NavDropdown.Item>
+                        <Link to={"/category/SANGUCHE"}>
+                            🥪 SANGUCHES
+                        </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                        <Link to={"/category/PIZZA"}>
+                            🍕 PIZZAS
+                        </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                        <Link to={"/category/PAPAS FRITAS"}>
+                            🍟 PAPAS FRITAS
+                        </Link>
+                    </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">
-                        <Link to={"/category/vegan"}>
+                        <Link to={"/category/VEGETARIANO"}>
                             <p className="nomargin">🥦 VEGANO</p>
                         </Link>
                     </NavDropdown.Item>
