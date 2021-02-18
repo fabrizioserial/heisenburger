@@ -8,6 +8,7 @@ export const ContextCart = (props) =>{
 
     const [contador,setContador] = useState(0)
     const [elements,setElement] = useState([])
+    const [orderItem,setOrder] = useState([])
 
     const addItem = (itemToAdd) =>{
         elements.length > 0 ? 
@@ -22,8 +23,29 @@ export const ContextCart = (props) =>{
             :
             setElement([...elements,itemToAdd])
         
+            console.log("loes elementos de mierda son:",elements)
     }
  
+    const addToOrder = () =>{
+        console.log(elements)
+        var nuevoarray = []
+        elements.forEach(products => {
+            nuevoarray = [...nuevoarray,{
+                title:products.item.title, 
+                id:products.item.id, 
+                price:products.item.price, 
+                quantity : products.quantity
+            }]
+            console.log("se pusheo ",products)
+        });
+        setOrder(nuevoarray)
+        
+    }
+    useEffect(()=>{
+        console.log(orderItem)
+
+    },[orderItem])
+
     const itemExist = (id) => {
         console.log(elements.filter(item => item.item.id === id).length)
         return elements.filter(item => item.item.id === id).length
@@ -55,7 +77,7 @@ export const ContextCart = (props) =>{
         setContador(cont)
     }
     return(
-        <ContextElement.Provider value={{contador,setContadorFun,elementsTouse:[elements,setElement],addItem,deleteElement,changeValue,elements}}>
+        <ContextElement.Provider value={{contador,setContadorFun,elementsTouse:[elements,setElement],addItem,deleteElement,changeValue,elements,addToOrder,orderItem}}>
         {
             props.children
         }

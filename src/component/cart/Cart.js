@@ -4,11 +4,19 @@ import './Cart.css'
 import { CartItem } from "./cartItem/CartItem";
 import  emptyCart from "../../image/carro-vacio.png"
 import {Link} from 'react-router-dom'
+import { FinishPayment } from "../cart/FinishedPayment/FinishPayment";
 
 export const Cart = () =>{
 
     const [price,setPrice] = useState(0)
     const [elements,setElement] = useState(useContext(ContextElement).elements)
+    const [orderItem,setOrder] =useState(useContext(ContextElement).orderItem)
+    const [finish,setFinish] = useState(false)
+
+    useEffect(()=>{
+        
+        console.log("finished cart es ",orderItem)
+    },[orderItem])
 
     var finalPrice = 0
     const updateElement = useContext(ContextElement).changeValue
@@ -79,7 +87,14 @@ export const Cart = () =>{
         
     },[elements,deleteElement])
 
+    const switchFinish = () =>{
+        setFinish(true)
+        console.log("se cambio a ", finish)
+    }
     
+    useEffect(()=>{
+
+    },[finish])
 
     return(
         <div className="cart-background">
@@ -96,17 +111,22 @@ export const Cart = () =>{
                          }
                          
                          <div className="cart-total">
+
+                            
                              
-                             <div className="cart-pay">
-                                 {
-                                    <p className="cart-total-totalvalue">
-                                        Total: ${price}
-                                    </p>
-                                 }
-                                 <button className="cart-total-btn-pagar">
-                                     PAGAR
-                                 </button>
-                             </div>
+                             {
+                                 finish ? <FinishPayment order={orderItem}/> : 
+                                 <div className="cart-pay">
+                                    {
+                                        <p className="cart-total-totalvalue">
+                                            Total: ${price}
+                                        </p>
+                                    }
+                                    <button className="cart-total-btn-pagar" onClick={switchFinish}>
+                                        PAGAR
+                                    </button>
+                                 </div>
+                             }
                          </div>
                      </div>
                      :
