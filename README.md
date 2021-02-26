@@ -12,4 +12,4 @@ Principalmente busqué realizar una pagina donde se presente productos, los cual
 
 ## Capturas
 
-![](https://i.gyazo.com/3806d10cfed504bf8765eaee16c4273b.gif)
+![](src\gif\home.gif)
