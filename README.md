@@ -12,4 +12,4 @@ Principalmente busqué realizar una pagina donde se presente productos, los cual
 
 ## Capturas
 
-![](src\gif\home.gif)
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/home.gif)
