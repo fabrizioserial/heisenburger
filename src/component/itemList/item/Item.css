@@ -1,11 +1,28 @@
 .item-cont{
     width: 200px;
-    height: 300px;
+    height: 250px;
     background-color: white;
     margin: 20px;
+    text-decoration: none !important;
+    
+}
+.item-cont p{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(36, 36, 36);
+}
+.item-cont p::placeholder{
+    color: rgb(36, 36, 36);
+}
+.item-title{
+    margin-top: 7px;
+    line-height: 25px;
+    font-weight: 700;
+    font-size: 21px;
+    white-space:inherit;
 }
 .item-img{
     width: 200px;
     height: 150px;
-
+    object-fit: cover;
 }

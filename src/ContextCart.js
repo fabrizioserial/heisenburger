@@ -1,14 +1,31 @@
-import { set } from 'core-js/fn/dict';
 import React,{useContext,useEffect,useState} from 'react'
-import { ItemCount } from './component/itemcount/ItemCount';
+import firebase from 'firebase/app'
+import '@firebase/firestore'
+import {  getFirestore } from './firebase/index';
+import { AlertDialog } from './component/AlertDialog';
+
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 
 export const ContextElement = React.createContext();
 
 export const ContextCart = (props) =>{
 
+    const [open, setOpen] = React.useState(false);
     const [contador,setContador] = useState(0)
     const [elements,setElement] = useState([])
     const [orderItem,setOrder] = useState([])
+    const [total,setPrice] = useState(0)
+
+
+    const handleClose = () => {
+        setOpen(false);
+      };
 
     const addItem = (itemToAdd) =>{
         elements.length > 0 ? 
@@ -26,7 +43,7 @@ export const ContextCart = (props) =>{
             console.log("loes elementos de mierda son:",elements)
     }
  
-    const addToOrder = () =>{
+    const addToOrder = (price) =>{
         console.log(elements)
         var nuevoarray = []
         elements.forEach(products => {
@@ -39,7 +56,22 @@ export const ContextCart = (props) =>{
             console.log("se pusheo ",products)
         });
         setOrder(nuevoarray)
+        setPrice(price)
         
+    }
+
+    const pushToDBOrder = (buyer) =>{
+        const ValueToAdd = {
+            buyer:buyer,
+            items:orderItem,
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total:total
+        }
+        console.log(ValueToAdd)
+        const db = getFirestore().collection('orders')
+        db.add(ValueToAdd).then(() => {
+            setOpen(true)
+        })
     }
     useEffect(()=>{
         console.log(orderItem)
@@ -77,10 +109,29 @@ export const ContextCart = (props) =>{
         setContador(cont)
     }
     return(
-        <ContextElement.Provider value={{contador,setContadorFun,elementsTouse:[elements,setElement],addItem,deleteElement,changeValue,elements,addToOrder,orderItem}}>
+        <ContextElement.Provider value={{contador,setContadorFun,elementsTouse:[elements,setElement],addItem,deleteElement,changeValue,elements,addToOrder,orderItem,pushToDBOrder}}>
         {
             props.children
         }
+        
+        <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description">
+                    <DialogTitle id="alert-dialog-title">{"Orden exitosa!"}</DialogTitle>
+                    <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Se agregó exitosamente la orden! En breve recibirá su pedido
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+
+                    <Button onClick={handleClose} color="primary" >
+                        Ok
+                    </Button>
+                    </DialogActions>
+                </Dialog>
         </ContextElement.Provider>
     )
 }

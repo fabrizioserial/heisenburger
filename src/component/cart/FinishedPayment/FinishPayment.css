@@ -1,0 +1,27 @@
+.btn-finish-payment{
+    width: 230px;
+    height: 40px;
+    border-width: 0px;
+    background-color: #FFC301;
+    color: white;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.input-finish-payment{
+    width: 230px;
+    height: 35px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #FFC301;
+    background-color: transparent;
+    color: #FFC301;
+
+    font-weight: 600;
+}
+.fp-field{
+    margin-top: 10px;
+}
+.fp-container-form{
+    margin-top: 35px;
+}

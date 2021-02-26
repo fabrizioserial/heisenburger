@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import './component/FontAwesomeIcons/index'
 import './App.css';
 import { NavBar } from './component/navbar/NavBar';
 import { ItemListContainer } from './component/home/ItemListContainer/ItemListContainer';
@@ -10,6 +11,7 @@ import { CategoryContainer } from './component/categories/CategoryContainer';
 import { Cart } from './component/cart/Cart';
 import { ContextCart } from './ContextCart';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { FooterComponent } from './component/footer/FooterComponent';
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
           </Route>
          
         </Switch>
+        <FooterComponent/>
       </ContextCart>
      
       </BrowserRouter>

@@ -1,19 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ContextElement } from '../../../ContextCart'
-import {getFirestore} from '../../../firebase/index'
+import { AlertDialog } from '../../AlertDialog'
+import "../FinishedPayment/FinishPayment.css"
+
 
 
 export const FinishPayment = (props) =>{
 
 
+    const pushToDBOrder = useContext(ContextElement).pushToDBOrder
     const addToOrder = useContext(ContextElement).addToOrder
+
     const [order,setOrder] = useState(props.orderItem)
+    const [name,setName] = useState('')
+    const [mobile,setMobile] = useState('')
+    const [email,setEmail] = useState('')
     
     const addToDatabase = () => {
         
+        const buyer = {
+            name: name,
+            mobile: mobile,
+            email: email
+        }
+        const task = new Promise((resolve,reject) =>{
+            addToOrder(props.totalprice)
+            pushToDBOrder(buyer)
+        })
+        
         
     }
-   
+
+
+
 
 
 
@@ -27,21 +46,22 @@ export const FinishPayment = (props) =>{
                     <p>
                         NOMBRE
                     </p>
-                    <input type="text" id="name" name="name" required/>
+                    <input className="input-finish-payment" type="text" id="name" name="name" required onChange={event => setName(event.target.value)}/>
                 </div>
                 <div className="fp-field">
                     <p>
                         TELEFONO
                     </p>
-                    <input type="text" id="mobile" name="mobile" required/>
+                    <input className="input-finish-payment" type="text" id="mobile" name="mobile" required onChange={event => setMobile(event.target.value)}/>
                 </div>
                 <div className="fp-field">
                     <p>
                         EMAIL
                     </p>
-                    <input type="text" id="email" name="email" required/>
+                    <input className="input-finish-payment" type="text" id="email" name="email" required onChange={event => setEmail(event.target.value)}/>
                 </div>
-                <button onClick={addToOrder}>Terminar</button>
+                <button className="btn-finish-payment" onClick={addToDatabase}>TERMINAR</button>
+
             </div>
     )
 }

@@ -12,6 +12,7 @@ export const Cart = () =>{
     const [elements,setElement] = useState(useContext(ContextElement).elements)
     const [orderItem,setOrder] =useState(useContext(ContextElement).orderItem)
     const [finish,setFinish] = useState(false)
+        
 
     useEffect(()=>{
         
@@ -115,7 +116,7 @@ export const Cart = () =>{
                             
                              
                              {
-                                 finish ? <FinishPayment order={orderItem}/> : 
+                                 finish ? <FinishPayment order={orderItem} totalprice={price}/> : 
                                  <div className="cart-pay">
                                     {
                                         <p className="cart-total-totalvalue">

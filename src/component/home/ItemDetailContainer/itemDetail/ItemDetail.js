@@ -48,7 +48,7 @@ export const ItemDetail = ({itemProp})=>{
                         {
                             
                             contador === 0 ? <ItemCount stock={20} handleEvent={AddToCart} initial={0} />
-                            : <Link to="/cart"><button onClick={()=>{
+                            : <Link to="/cart"><button className="itemcount-terminar" onClick={()=>{
                                 console.log("el item a pushear es ",item)
                                 addItem(item)
                                 
