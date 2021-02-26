@@ -12,4 +12,21 @@ Principalmente busqué realizar una pagina donde se presente productos, los cual
 
 ## Capturas
 
+- Home 
+
 ![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/home.gif)
+
+- Categorias y seleccion de items
+
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/categoryHome.gif)
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/categoryBurger.gif)
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/itemDetail.gif)
+
+- Terminar compra
+
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/paycart.gif)
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/finishCart.gif)
+
+- Carro vacio
+
+![](https://raw.githubusercontent.com/fabrizioserial/heisenburger/main/src/gif/emptycart.gif)
